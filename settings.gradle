@@ -1,4 +1,5 @@
 rootProject.name = 'spring-boot-template'
 include 'sbt-security'
 include 'sbt-security-oauth2'
+include 'sbt-util'
 

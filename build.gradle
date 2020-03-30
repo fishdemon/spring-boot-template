@@ -63,3 +63,9 @@ project(':sbt-security-oauth2') {
         testImplementation 'org.springframework.security:spring-security-test'
     }
 }
+
+project(':sbt-util') {
+    dependencies {
+        implementation 'cn.hutool:hutool-all:5.2.5'
+    }
+}
