@@ -63,3 +63,19 @@ project(':sbt-security-oauth') {
         testImplementation 'org.springframework.security:spring-security-test'
     }
 }
+
+project(':sbt-security-oauth2') {
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.0.RELEASE'
+        testImplementation 'org.springframework.security:spring-security-test'
+    }
+}
+
+project(':sbt-util') {
+    dependencies {
+        implementation 'cn.hutool:hutool-all:5.2.5'
+    }
+}
+
