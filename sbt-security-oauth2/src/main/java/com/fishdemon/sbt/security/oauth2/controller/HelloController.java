@@ -1,4 +1,4 @@
-package com.fishdemon.sbt.security.oauth2;
+package com.fishdemon.sbt.security.oauth2.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

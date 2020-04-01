@@ -18,9 +18,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("client_1")
+        clients.inMemory().withClient("web")
                 .resourceIds("info")
-                .authorizedGrantTypes("client_credentials", "password", "refresh_token")
+                .authorizedGrantTypes("authorization_code", "client_credentials", "password", "refresh_token")
                 .scopes("select")
                 .authorities("client")
                 .secret("123456");
