@@ -10,8 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.security.web.util.matcher.OrRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -28,15 +26,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .authorizeRequests()
-            .antMatchers("/hello", "/oauth/**")
-            .permitAll()
-            .anyRequest()
-            .authenticated()
-            .and()
-            .formLogin().permitAll()
-            .and()
-            .csrf().disable();
+                .authorizeRequests()
+                .antMatchers("/hello", "/oauth/**").permitAll()
+                .anyRequest().authenticated()
+
+                .and()
+                .formLogin()
+
+                .and()
+                .csrf().disable();
     }
 
     @Bean

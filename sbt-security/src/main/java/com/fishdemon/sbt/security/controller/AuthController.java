@@ -5,17 +5,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("test")
-public class TestController {
+@RequestMapping("auth")
+public class AuthController {
 
     @GetMapping
-    public String getTest() {
-        return "succeed to get response";
+    public String getInfo() {
+        return "auth info";
     }
 
 
     /**
-     * 页面路由，当使用GET请求访问/login接口，会自动跳转到`/templates/login.html`页面
+     * 页面路由，当使用GET请求访问/login接口，会自动跳转到`/templates/index.html`页面
      *
      * @return login登录页面路由地址
      */
@@ -25,7 +25,7 @@ public class TestController {
     }
 
     /**
-     * 页面路由，当使用GET请求访问/login接口，会自动跳转到`/templates/index.html`页面
+     * 页面路由，当使用GET请求访问/login接口，会自动跳转到`/templates/login.html`页面
      *
      * @return index首页面路由地址
      */
