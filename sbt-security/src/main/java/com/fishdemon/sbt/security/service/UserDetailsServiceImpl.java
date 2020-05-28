@@ -30,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 //        String password = passwordEncoder.encode("123456");
         log.info("登录，用户名：{}, ，密码： {}", username, "123456");
         //根据用户名查询用户数据，比如：从数据库中查询
-        return new User(username, "123456", AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
+        return new User("allen", "123456", AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
     }
 
 }

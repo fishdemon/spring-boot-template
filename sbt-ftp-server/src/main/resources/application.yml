@@ -1,0 +1,7 @@
+ftp:
+  server:
+    allow-anonymous: false
+    username: ftpuser
+    password: 123456
+    home-directory: E://ftpServer
+    allow-write: false

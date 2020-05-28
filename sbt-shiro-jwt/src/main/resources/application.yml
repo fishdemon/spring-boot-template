@@ -1,0 +1,91 @@
+# AES密码加密私钥(Base64加密)
+encryptAESKey: V2FuZzkyNuYSKIuwqTQkFQSUpXVA
+# JWT认证加密私钥(Base64加密)
+encryptJWTKey: U0JBUElOENhspJrzkyNjQ1NA
+# AccessToken过期时间-5分钟-5*60(秒为单位)
+accessTokenExpireTime: 300
+# RefreshToken过期时间-30分钟-30*60(秒为单位)
+refreshTokenExpireTime: 1800
+# Shiro缓存过期时间-5分钟-5*60(秒为单位)(一般设置与AccessToken过期时间一致)
+shiroCacheExpireTime: 300
+
+#服务器配置
+server:
+  port: 5000
+  servlet:
+    context-path: /
+
+tomcat:
+  remote-ip-header: x-forward-for
+  uri-encoding: UTF-8
+  max-threads: 10
+  background-processor-delay: 30
+
+# swagger config 
+swagger:
+  show: true
+  
+#项目配置
+spring:
+  devtools:
+    restart:
+     enabled: true
+     #additional-paths: src/main/java
+     #exclude: WEB-INF/**
+  http:
+    encoding: 
+      force: true
+      charset: UTF-8
+  application:
+    name: shiro-jwt
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring-shiro-jwt?characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC
+    username: root
+    password: 123456
+    hikari:
+      max-lifetime: 600000
+      idle-timeout: 300000
+      minimum-idle: 5
+      maximum-pool-size: 20 
+  redis:
+    database: 1
+    host: localhost
+    port: 6379
+    password: 
+    timeout: 5000 
+    pool: 
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+     
+ 
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  global-config:
+    id-type: 0
+    db-config:
+      logic-delete-value: 0 # deleted
+      logic-not-delete-value: 1 
+  configuration:
+    map-underscore-to-camel-case: true
+   
+logging:
+  file: log/log.log
+  file.max-history: 30
+  file.max-size: 10MB
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%t]){faint} %clr(%-40.40logger{39}.%M\\(%line\\)){cyan}   %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39}.%M\\(%line\\): %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}" 
+  level:
+    root: info
+    priv.maanjin.shirojwt: debug
+    org.springframework:
+        boot:
+          web:
+            embedded:
+              tomcat: info
