@@ -1,12 +1,18 @@
 package com.fishdemon.sbt.security.config;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -20,16 +26,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
          * authenticated(): 身份认证
          */
         http
-                .formLogin()
-                .loginPage("/auth/login")
-                .defaultSuccessUrl("/auth/index")
-//                .httpBasic()
+//                .formLogin()
+//                .loginPage("/auth/login")
+//                .defaultSuccessUrl("/index")
+                .httpBasic()
                 .and()
-                .requestMatchers().antMatchers("/auth/**", "/login")
+                .rememberMe() // 开启记住我功能
+                .tokenValiditySeconds(60)  // 记住我 token 的失效时间
+                .userDetailsService(userDetailsService) // 记住我功能验证user的service
                 .and()
+//                .requestMatchers().antMatchers("/auth/**")
+//                .and()
                 .authorizeRequests()
-//                .antMatchers("/noauth/**")
-//                .permitAll()
+                .antMatchers("/noauth/**")
+                .permitAll()
                 .anyRequest()
                 .authenticated();
     }

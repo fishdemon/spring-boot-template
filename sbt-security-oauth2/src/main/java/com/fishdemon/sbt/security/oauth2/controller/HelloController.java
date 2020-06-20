@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
+
 @RestController
 public class HelloController {
 
@@ -18,5 +20,10 @@ public class HelloController {
     public String info(@PathVariable String name) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return "hello " + name + ", this your info";
+    }
+
+    @GetMapping("/user/current")
+    public Principal user(Principal user) {
+        return user;
     }
 }

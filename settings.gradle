@@ -3,5 +3,19 @@ include 'sbt-security'
 include 'sbt-security-oauth'
 include 'sbt-security-oauth2'
 include 'sbt-util'
+<<<<<<< HEAD
 include 'sbt-net-proxy'
+=======
+include 'sbt-socketio'
+include 'sbt-websocket'
+include 'sbt-shiro-jwt'
+include 'sbt-spring-event'
+include 'sbt-mybatis'
+include 'sbt-mybatis-plus'
+include 'sbt-ftp-server'
+include 'sbt-ftp-client'
+include 'spring-security-jwt'
+include 'sbt-security-jwt'
+include 'sbt-mvc'
+>>>>>>> e2019ee125314f8dea4e7ba7ec708ac2c3ac5abd
 
