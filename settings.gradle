@@ -3,5 +3,5 @@ include 'sbt-security'
 include 'sbt-security-oauth'
 include 'sbt-security-oauth2'
 include 'sbt-util'
-
+include 'sbt-net-proxy'
 

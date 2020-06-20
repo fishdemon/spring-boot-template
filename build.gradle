@@ -79,3 +79,10 @@ project(':sbt-util') {
     }
 }
 
+project(':sbt-net-proxy') {
+    dependencies {
+        implementation 'cn.hutool:hutool-all:5.2.5'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+    }
+}
+
