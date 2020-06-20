@@ -48,6 +48,13 @@ subprojects {
     }
 }
 
+project(':sbt-flowable') {
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.flowable:flowable-engine:6.5.0'
+    }
+}
+
 project(':sbt-ftp-server') {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter'
@@ -178,6 +185,7 @@ project(':sbt-websocket') {
 
 project(':sbt-util') {
     dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web'
         implementation 'cn.hutool:hutool-all:5.2.5'
     }
 }
