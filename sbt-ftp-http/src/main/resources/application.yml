@@ -1,0 +1,53 @@
+ftp:
+  home-directory: E://ftpServer
+  download-context-path: /file
+
+server:
+  port: 12345
+  servlet:
+    context-path: /
+
+tomcat:
+  remote-ip-header: x-forward-for
+  uri-encoding: UTF-8
+  max-threads: 10
+  background-processor-delay: 30
+
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  devtools:
+    restart:
+      enabled: true
+  application:
+    name: sbt-ftp-http
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 10MB
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+
+logging:
+  file: log/access.log
+  file.max-history: 30
+  file.max-size: 10MB
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%t]){faint} %clr(%-40.40logger{39}.%M\\(%line\\)){cyan}   %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%t] %-40.40logger{39}.%M\\(%line\\): %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+  level:
+    root: WARN
+    com.fishdemon.sbt: debug
+    org.springframework.boot:
+        web.embedded.tomcat: info
+

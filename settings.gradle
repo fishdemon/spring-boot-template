@@ -15,4 +15,5 @@ include 'spring-security-jwt'
 include 'sbt-security-jwt'
 include 'sbt-mvc'
 include 'sbt-flowable'
+include 'sbt-ftp-http'
 
