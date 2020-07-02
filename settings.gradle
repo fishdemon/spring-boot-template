@@ -3,6 +3,7 @@ include 'sbt-security'
 include 'sbt-security-oauth'
 include 'sbt-security-oauth2'
 include 'sbt-util'
+include 'sbt-net-proxy'
 include 'sbt-socketio'
 include 'sbt-websocket'
 include 'sbt-shiro-jwt'
@@ -16,4 +17,5 @@ include 'sbt-security-jwt'
 include 'sbt-mvc'
 include 'sbt-flowable'
 include 'sbt-ftp-http'
+
 
